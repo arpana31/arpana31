@@ -1,0 +1,562 @@
+ 
+1. Renaming variables, methods, and classes. 
+
+
+classEvenOrOdd
+{
+publicstatic voidmain(Stringargs[])
+{
+int n=Integer.parseInt(args[0]);
+for(inti=0;i<=n;i++)	
+{
+if(i%2==0)
+System.out.Println("it is evennumber",+i);
+else
+System.out.Println("it is oddnumber",+i);
+
+}
+}
+}
+
+ OUTPUT
+javac Eclipse.javajavaEvenOrOdd
+
+it is even number0
+it is odd number1
+it is even number2
+it is odd number3
+it is even number4
+it is odd number5
+it is even number6
+it is odd number7
+it is even number8
+
+
+ 
+2. Write a Java program that works as a simple calculator. Use a grid layout to arrangebuttons for the digits and for the +, -,*, % operations. 
+Gedit Calculator.javaimport java.awt.*;importjava.a wt.event.*;
+
+publicclassCalculatorimplementsActionListener
+{
+intc,n;
+String s1,s2,s3,s4,s5;Framef;
+Button b1,b2,b3,b4,b5,b6,b7,b8,b9,b10,b11,b12,b13,b14,b15,b16,b17;Panelp;
+TextFieldtf;
+GridLayout g;Calculator()
+{
+f=newFrame("Mycalculator");
+p = new Panel();
+f.setLayout(new FlowLayout());
+b1 = new Button("0");b1.addActionListener(this);
+b2 = new Button("1");b2.addActionListener(this);
+b3 = new Button("2");b3.addActionListener(this);
+b4 = new Button("3");b4.addActionListener(this);
+b5 = new Button("4");b5.addActionListener(this);
+b6 = new Button("5");b6.addActionListener(this);
+b7 = new Button("6");b7.addActionListener(this);
+b8 = new Button("7");b8.addActionListener(this);
+b9 = new Button("8");b9.addActionListener(this);
+b10 = new Button("9");b10.addActionListener(this);b11 = new Button("+");b11.addActionListener(this);b12 = new Button("-");b12.addActionListener(this);b13 = new Button("*");b13.addActionListener(this);b14 = new Button("/");b14.addActionListener(this);b15 = new Button("%");b15.addActionListener(this);b16 = new Button("=");b16.addActionListener(this);b17 = new Button("C");b17.addActionListener(this);
+tf = new TextField(20);f.add(tf);
+g = new GridLayout(4,4,10,20);p.setLayout(g);
+             p.add(b1);
+p.add(b2);
+p.add(b3);
+p.add(b4);
+p.add(b5);
+p.add(b6);
+p.add(b7);
+p.add(b8);
+p.add(b9);
+p.add(b10);
+p.add(b11);
+p.add(b12);
+p.add(b13);
+p.add(b14);
+p.add(b15);
+p.add(b16);
+p.add(b17);
+f.add(p);
+f.setSize(300,300);f.setVisible(true);
+}
+publicvoidactionPerformed(ActionEvente)
+{
+if(e.getSource()==b1)
+{
+s3 = tf.getText();
+s4= "0";
+s5 = s3+s4;tf.setText(s5);
+}
+if(e.getSource()==b2)
+{
+s3 = tf.getText();
+s4= "1";
+s5 = s3+s4;tf.setText(s5);
+}
+if(e.getSource()==b3)
+{
+s3 = tf.getText();
+s4= "2";
+s5 = s3+s4;tf.setText(s5);
+}
+if(e.getSource()==b4)
+{
+s3 = tf.getText();
+s4= "3";
+s5 = s3+s4;tf.setText(s5);
+}
+if(e.getSource()==b5)
+{
+s3 = tf.getText();
+s4= "4";
+s5 =s3+s4;
+
+tf.setText(s5);
+}
+
+if(e.getSource()==b6)
+{
+s3 = tf.getText();
+s4= "5";
+s5 = s3+s4;tf.setText(s5);
+}
+if(e.getSource()==b7)
+{
+s3 = tf.getText();
+s4= "6";
+s5 = s3+s4;tf.setText(s5);
+}
+if(e.getSource()==b8)
+{
+s3 = tf.getText();
+s4= "7";
+s5 = s3+s4;tf.setText(s5);
+}
+if(e.getSource()==b9)
+{
+s3 = tf.getText();
+s4= "8";
+s5 = s3+s4;tf.setText(s5);
+}
+if(e.getSource()==b10)
+{
+s3 = tf.getText();
+s4= "9";
+s5 = s3+s4;tf.setText(s5);
+}
+if(e.getSource()==b11)
+{
+s1=tf.getText();
+
+tf.setText("");
+c=1;
+	
+}
+if(e.getSource()==b12)
+{
+s1 = tf.getText();tf.setText("");
+c=2;
+
+}
+if(e.getSource()==b13)
+{
+s1 = tf.getText();
+tf.setText("");
+c=3;
+
+}
+if(e.getSource()==b14)
+{
+s1 = tf.getText();tf.setText("");
+c=4;
+
+}
+if(e.getSource()==b15)
+{
+s1 = tf.getText();tf.setText("");
+c=5;
+}
+if(e.getSource()==b16)
+{
+s2 = tf.getText();if(c==1)
+{
+n = Integer.parseInt(s1)+Integer.parseInt(s2);tf.setText(String.valueOf(n));
+}
+elseif(c==2)
+{
+n=Integer.parseInt(s1)-Integer.parseInt(s2);tf.setText(String.valueOf(n));
+}
+elseif(c==3)
+{
+n = Integer.parseInt(s1)*Integer.parseInt(s2);tf.setText(String.valueOf(n));
+}
+if(c==4)
+{
+try
+{
+intp=Integer.parseInt(s2);if(p!=0)
+{
+n = Integer.parseInt(s1)/Integer.parseInt(s2);tf.setText(String.valueOf(n));
+		}
+else
+tf.setText("infinite");
+}
+catch(Exceptioni)
+{
+}
+}
+if(c==5)
+{
+n = Integer.parseInt(s1)%Integer.parseInt(s2);tf.setText(String.valueOf(n));
+}
+}
+if(e.getSource()==b17)
+{
+tf.setText("");
+}
+}
+
+publicstaticvoidmain(String[]args)
+{
+Calculatorv=newCalculator();
+}
+}
+Output
+javac Calculator.javajavaCalculator
+
+
+ 
+
+
+3.A)Java thatdisplaysasimplemessage.
+B)Java that receives an integer in one text field, and computes itsfactorial Value and returns it in another text field, when the button named “Compute” isclicked.
+
+A)	Javathatdisplays a simplemessage.
+
+Geditsimpleapplet.java
+
+importjava.applet.*;
+
+importjava.awt.*;
+publicclasssimpleappletextendsApplet
+
+{
+publicvoidpaint(Graphicsg)
+{
+g.drawString("hello",50,50);
+}
+
+}
+Ouput
+javac simpleapplet.javageditsimpleapplet.html
+<html>
+<appletcode="simpleapplet.class"height=500width=700>
+</applet>
+</html>
+appletviewersimpleapplet.html
+
+ 
+
+B)Java that receives an integer in one text field, and computes itsfactorial Value and returns it in another text field, when the button named “Compute” isclicked.
+GeditIntegerApplet.java
+importjava.awt.*;
+importjava.awt.event.*;
+publicclassIntegerAppletextendsjava.applet.AppletimplementsActionListener
+{
+TextFieldt1,t2;
+Labell1,l2,l3;
+Buttonb1;
+intfact=1,n,i;IntegerApplet e;
+publicvoidinit()
+{
+e=this;
+t1=new TextField(10);t2=newTextField(10);
+l1=new Label("factorial of a number");l2=newLabel("enternumber");
+l3=new Label("result");
+b1=new Button("compute");add(l1);
+add(l2);
+add(l3);
+add(t1);
+add(t2);
+add(b1);b1.addActionListener(this);
+}
+publicvoidactionPerformed(ActionEventae)
+{
+String str=t1.getText();n=Integer.parseInt(str);for(i=n;i>1;i--)
+{
+fact=fact*i;
+}
+Stringmsg=""+fact;
+t2.setText(msg);
+fact=1;
+}
+}
+Output
+javac IntegerApplet.javageditfact.html
+<html>
+<applet code="IntegerApplet.class"width=300height=300>
+<paramname="t1"value="ram">
+<paramname="t2"value="98.55">
+</applet>
+</html>
+apppletviewerfact.html
+
+
+
+ 
+
+
+
+
+
+ 
+
+4.Write a java program that creates a user interface to perform integer divisions. The user enters two numbers in thetext fields, Num1 and Num2. The division of Num1and Num 2 is displayed in the Result fieldwhen the Divide button is clicked. If Num1 or Num2 were not an integer, the program wouldthrowaNumberFormatException.IfNum2wereZero,theprogramwouldthrowanArithmeticException. Display theexceptioninamessagedialog box.
+
+Gedit Division.java
+
+importjava.awt.*;importjavax.swing.*;
+import java.applet.Applet;importjava.awt.event.*;
+publicclassDivisionextendsAppletimplementsActionListener
+{
+TextField t1,t2,t3;
+Buttonb;
+LabelL1,L2,L3,L4;
+String s;
+Division e;
+publicvoidinit()
+{
+e=this;
+t1=new TextField(10);
+t2=new TextField(10);
+t3=newTextField(10);
+L1=new Label("enter num1");
+L2=new Label("enter num2");L3=newLabel("Resultis");
+L4=new Label("Division of numbers");
+b=new Button("Divide");
+add(L4);
+add(L1);
+add(t1);
+add(L2);
+add(t2);
+add(L3);
+add(t3);
+add(b);b.addActionListener(this);
+}
+
+publicvoidactionPerformed(ActionEventae)
+{
+ try
+{
+ int num1=Integer.parseInt(t1.getText());
+int num2=Integer.parseInt(t2.getText());
+	s=""+(num1/num2);
+t3.setText(s);
+}
+catch(ArithmeticExceptiona)
+{
+JOptionPane.showMessageDialog(null,"Dividebyzero");
+}
+catch(NumberFormatExceptionb)
+{
+JOptionPane.showMessageDialog(null,"NumberFormatException");
+}
+}
+}
+
+
+output:
+javac Division.javageditDivision.html
+<html>
+<head>
+</head>
+<body>
+<appletcode="Division.class"height=500width=300></applet>
+</body>
+</html>
+
+
+
+appletviewerDivision.htm
+
+
+
+ 
+
+When we entered mun2 as 0 it will gives
+
+
+ 
+
+
+
+When we entered non integer values, it throws NumberFormatException
+
+
+  
+5.WriteaJavaprogramthatimplements a multi-thread application that has three threads. First thread generates randominteger every 1 second and if the value is even, second thread computes the square of thenumber and prints. If the value is odd, the third thread will print the value of cube of thenumber.
+Gedit Mthread.javaimport java.lang.*;importjava.util.*;
+classevenimplementsRunnable
+{
+publicintx;
+publiceven(intx)
+{
+this.x=x;
+}
+public voidrun()
+{
+System.out.println("thread name:even thread and"+x+"is even number and squareof"+x+"is:"+x*x);
+}
+}
+classoddimplementsRunnable
+{
+publicintx;
+public odd(intx)
+{
+this.x=x;
+}
+public voidrun()
+{
+        System.out.println("thread name:odd	thread and"+x+"is odd number	andcubeof"+x+"is:"+x*x*x);
+}
+}
+classAextendsThread
+{
+public String tname;
+public Random r;public Thread t1,t2;
+publicA(Strings)
+{
+tname=s;
+}
+public voidrun()
+{
+intnum=10;
+r= new Random();
+try
+{
+for(inti=0;i<50;i++)
+{
+num=r.nextInt(100);
+System.out.println("mainthreadandgeneratednumberis"+num);if(num%2==0)
+{
+t1=newThread(neweven(num));t1.start();
+}
+else
+{
+t2 = new Thread(new odd(num));
+t2.start();
+}
+Thread.sleep(1000);
+
+System.out.println("	");
+}
+}
+catch(Exceptione)
+{
+System.out.println(e.getMessage());
+}
+}
+}
+classMthread
+{
+publicstatic voidmain(Stringargs[])
+{
+Aa=newA("one");
+a.start();
+}
+}
+output:
+javac Mthread.javajavaMthread
+mainthreadandgeneratednumberis2
+thread name:eventhreadand2isevennumberandsquareof2is:4
+
+mainthreadandgeneratednumberis85
+threadname:oddthread and85isodd numberandcubeof85is:614125
+
+mainthreadandgeneratednumberis92
+threadname:eventhreadand92isevennumberandsquareof92is:8464
+
+mainthreadandgeneratednumberis24
+threadname:eventhreadand24isevennumberandsquareof24is:576
+
+mainthreadandgeneratednumberis74
+threadname:eventhreadand74isevennumberandsquareof74is:5476
+
+mainthreadandgeneratednumberis4
+thread name:eventhreadand4isevennumberandsquareof4is:16
+
+mainthreadandgeneratednumberis59
+threadname:oddthread and59isodd numberandcubeof59is:205379
+
+mainthreadandgeneratednumberis83
+threadname:oddthread and83isodd numberandcubeof83is:571787
+
+mainthreadandgeneratednumberis23
+threadname:oddthread and23isodd numberandcubeof23is:12167
+
+mainthreadandgeneratednumberis24
+threadname:eventhreadand24isevennumberandsquareof24is:576
+
+mainthreadandgeneratednumberis88
+threadname:eventhreadand88isevennumberandsquareof88is:7744
+
+mainthreadandgeneratednumberis62
+threadname:eventhreadand62isevennumberandsquareof62is:3844
+
+mainthreadandgeneratednumberis75
+threadname:oddthread and75isodd numberandcubeof75is:421875
+
+mainthreadandgeneratednumberis30
+threadname:eventhreadand30isevennumberandsquareof30is:900
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+       
+
+
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+		
+	
+
+
+
+
+
+
+
+
+
+
+
+		 
+
+
+
+
+
+
+
+
+
+ 
+
